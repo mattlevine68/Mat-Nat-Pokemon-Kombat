@@ -18,13 +18,17 @@ public class PlayerMovement : MonoBehaviour
     float time;
     public float walkSpeed = 3f;
 
-    void Start(){
+    public bool isAllowedToMove = true;
 
+    void Start()
+    {
+      isAllowedToMove = true;
     }
-    // Update is called once per frame
+    // Checks if allowed to move and if it is moving
+    //Switch cases depending on direction for sprites
     void Update()
     {
-      if(!isMoving)
+      if(!isMoving && isAllowedToMove)
       {
         //Gets Postion of character Sprite
         input = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
